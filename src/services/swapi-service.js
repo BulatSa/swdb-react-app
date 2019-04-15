@@ -47,17 +47,17 @@ export default class SwapiService {
 		return item.url.match(idRegExp)[1];
 	}
 
-	_transformPlanet(planet) {
+	_transformPlanet = (planet) => {
 		return {
 			id: this._extractId(planet),
 			name: planet.name,
 			population: planet.population,
 			rotationPeriod: planet.rotation_period,
 			diameter: planet.diameter
-		}
-	}
+		};
+	};
 
-	_transformStarhip(starship) {
+	_transformStarhip = (starship) => {
 		return {
 			id: this._extractId(starship),
 			name: starship.name,
@@ -68,24 +68,17 @@ export default class SwapiService {
 			crew: starship.crew,
 			passengers: starship.passengers,
 			cargoCapacity: starship.cargo_capacity
-		}
-	}
+		};
+	};
 
-	_transformPerson(person) {
+	_transformPerson = (person) => {
 		return {
 			id: this._extractId(person),
 			name: person.name,
 			gender: person.gender,
 			birthYear: person.birth_year,
 			eyeColor: person.eyeColor
-		}
-	}
+		};
+	};
 
 }
-
-const swapi = new SwapiService();
-
-swapi.getPerson(3)
-	.then((p) => {
-		console.log(p.name);
-	});
