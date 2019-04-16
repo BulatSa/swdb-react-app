@@ -10,12 +10,14 @@ import './app.css';
 export default class App extends Component {
 
 	state = {
-		selectedPerson: 5
+		selectedPerson: null,
+		loading: true
 	};
 
 	onPersonSelected = (id) => {
 		this.setState({
-			selectedPerson: id
+			selectedPerson: id,
+			loading: true
 		});
 	};
 
